@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thaci Nail Designer - Portfólio Atualizado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-color: #ff69b4;
+      --secondary-color: #ff4fa7;
+      --accent-color: #ff89c7;
+      --bg-color: #0f0f0f;
+      --text-color: #ffffff;
+      --sub-text-color: #f5c6dc;
+      --description-color: #d9d9d9;
+      --shadow-color: rgba(255,105,180,0.35);
+      --box-shadow: 0 10px 25px var(--shadow-color);
+      --box-shadow-hover: 0 15px 30px rgba(255,105,180,0.5);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x:hidden;
+    }
+
+    .bg{
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left, var(--secondary-color) 0%, transparent 30%),
+      radial-gradient(circle at bottom right, var(--primary-color) 0%, transparent 25%),
+      var(--bg-color);
+      z-index:-1;
+      opacity:0.9;
+    }
+
+    header{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero{
+      max-width:700px;
+    }
+
+    .logo{
+      font-family:'Great Vibes', cursive;
+      font-size:5rem;
+      color: var(--primary-color);
+      margin-bottom:10px;
+      text-shadow:0 0 15px rgba(255,105,180,0.6);
+    }
+
+    .subtitle{
+      font-size:1.2rem;
+      color: var(--sub-text-color);
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      line-height:1.7;
+      color: var(--description-color);
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 35px;
+      background:linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+      color: var(--text-color);
+      text-decoration:none;
+      border-radius:40px;
+      font-weight:600;
+      transition:0.3s;
+      box-shadow: var(--box-shadow);
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    section{
+      padding:80px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.5rem;
+      margin-bottom:50px;
+      color: #ff79bd;
+    }
+
+    /* Galeria Otimizada para 5 Imagens */
+    .gallery{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 400px);
+      gap: 25px;
+    }
+
+    /* As duas primeiras imagens ocupam 1.5 colunas cada */
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(2) {
+      grid-column: span 1.5;
+    }
+
+    /* As outras três imagens ocupam 1 coluna cada na segunda linha */
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) {
+      grid-column: span 1;
+    }
+
+    .gallery img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:25px;
+      transition:0.4s;
+      border:2px solid rgba(255,255,255,0.08);
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    .price-box{
+      max-width:500px;
+      margin:0 auto;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:40px;
+      border-radius:30px;
+      text-align:center;
+      box-shadow:0 10px 35px rgba(0,0,0,0.35);
+    }
+
+    .price-box h3{
+      font-size:2rem;
+      color:#ff79bd;
+      margin-bottom:10px;
+    }
+
+    .price{
+      font-size:3rem;
+      font-weight:700;
+      margin:20px 0;
+      color: var(--text-color);
+    }
+
+    .price-box p{
+      color:#d4d4d4;
+      line-height:1.7;
+    }
+
+    .about{
+      max-width:850px;
+      margin:0 auto;
+      text-align:center;
+      line-height:1.9;
+      color:#e3e3e3;
+      font-size:1.05rem;
+    }
+
+    .instagram-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .instagram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 35px;
+      background: transparent;
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: 600;
+      border: 2px solid var(--primary-color);
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255,105,180,0.2);
+    }
+
+    .instagram-btn i {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      transition: 0.3s;
+    }
+
+    .instagram-btn:hover {
+      background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+      border-color: transparent;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(255,105,180,0.4);
+    }
+
+    .instagram-btn:hover i {
+      color: var(--text-color);
+    }
+
+    footer{
+      padding:50px 20px;
+      text-align:center;
+      color:#c9c9c9;
+    }
+
+    @media(max-width:992px){
+      .gallery{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(2),
+      .gallery-item:nth-child(3),
+      .gallery-item:nth-child(4),
+      .gallery-item:nth-child(5) {
+        grid-column: span 1;
+      }
+    }
+
+    @media(max-width:700px){
+
+      .logo{
+        font-size:3.5rem;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+
+      .gallery{
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item {
+        height: 340px;
+      }
+
+      .gallery img{
+        height: 100%;
+      }
+
+      .price{
+        font-size:2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg"></div>
+
+  <header>
+    <div class="hero">
+      <h1 class="logo">Thaci Nail Designer</h1>
+
+      <p class="subtitle">
+        Unhas delicadas, elegantes e feitas com muito carinho ✨
+      </p>
+
+      <p>
+        Especialista em cutilagem russa e nail design. 
+        Eu trabalho com dedicação em cada detalhe para oferecer unhas impecáveis,
+        resistentes e com acabamento profissional, sempre buscando entregar a melhor experiência para cada cliente.
+      </p>
+
+      <a class="btn" 
+      href="https://wa.me/13996769757?text=Olá%20Thaci,%20tudo%20bem%3F%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20horário%20com%20você"
+      target="_blank">
+      Agendar Horário
+      </a>
+    </div>
+  </header>
+
+  <section id="trabalhos">
+    <h2 class="section-title">Trabalhos Recentes</h2>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="20260403_195038.jpg" alt="Unha Amendoada Vermelha com Glitter e Detalhes Pretos">
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_20260501_152745691.jpg" alt="Unha Quadrada com Francesinha e Nail Art do Coringa">
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_20260327_225848009.jpg" alt="Unha Quadrada Curta Rosa Claro Simples">
+      </div>
+      <div class="gallery-item">
+        <img src="20260408_190240.jpg" alt="Unha Quadrada com Francesinha e Glitter na Base">
+      </div>
+      <div class="gallery-item">
+        <img src="20260424_195849.jpg" alt="Unha Stiletto Longa Branco Leitoso com Ponto de Luz">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Serviço</h2>
+
+    <div class="price-box">
+      <h3>Cutilagem Russa + Nail Design</h3>
+
+      <div class="price">R$ 60</div>
+
+      <p>
+        Alongamentos e esmaltações com acabamento sofisticado,
+        delicadeza e muito cuidado em cada atendimento.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Sobre Mim</h2>
+
+    <div class="about">
+      Sou apaixonada pelo universo da beleza e trabalha sempre buscando evoluir
+      para entregar unhas lindas, modernas e duradouras.
+      Cada atendimento é feito com atenção, carinho e foco total na qualidade,
+      para que cada cliente saia se sentindo ainda mais bonita e confiante 💖
+    </div>
+  </section>
+
+  <section class="instagram-section">
+    <h2 class="section-title">Acompanhe no meu Instagram</h2>
+    <a href="https://instagram.com/thaci_nail_frg" target="_blank" class="instagram-btn">
+      <i class="fab fa-instagram"></i>
+      Siga @ThaciNailDesigner
+    </a>
+  </section>
+
+  <footer>
+    © 2026 • Thaci Nail Designer ✨
+  </footer>
+
+</body>
+</html>
